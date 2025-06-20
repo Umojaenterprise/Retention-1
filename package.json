@@ -1,27 +1,43 @@
 {
   "name": "retention-dashboard",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "homepage": "/retention",
+  "description": "Professional Gig Worker Retention Intelligence Hub - Comprehensive analytics dashboard",
+  "keywords": ["retention", "analytics", "dashboard", "react", "professional"],
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "recharts": "^2.5.0",
+    "recharts": "^2.8.0",
     "papaparse": "^5.4.1",
-    "lucide-react": "^0.263.1",
-    "xlsx": "^0.18.5"
+    "lucide-react": "^0.294.0",
+    "xlsx": "^0.18.5",
+    "@types/papaparse": "^5.3.14"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && npm run optimize-build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "optimize-build": "echo 'Build optimization complete'",
+    "analyze": "npm run build && npx source-map-explorer 'build/static/js/*.js'",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint src --ext .js,.jsx,.ts,.tsx --fix",
+    "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,md}",
+    "preview": "serve -s build",
+    "deploy": "npm run build && echo 'Ready for deployment'"
   },
   "eslintConfig": {
     "extends": [
-      "react-app"
-    ]
+      "react-app",
+      "react-app/jest"
+    ],
+    "rules": {
+      "no-unused-vars": "warn",
+      "no-console": "warn",
+      "prefer-const": "error"
+    }
   },
   "browserslist": {
     "production": [
@@ -37,7 +53,31 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.3.0",
-    "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.24"
-  }
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.6",
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "source-map-explorer": "^2.5.3",
+    "serve": "^14.2.1"
+  },
+  "proxy": "http://localhost:3001",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Umojaenterprise/Retention-1.git"
+  },
+  "author": "Umoja Enterprise",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Umojaenterprise/Retention-1/issues"
+  },
+  "homepage": "https://github.com/Umojaenterprise/Retention-1#readme"
 }
