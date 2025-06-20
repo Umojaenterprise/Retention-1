@@ -14,6 +14,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f8fafc;
 }
 
 code {
@@ -21,19 +22,336 @@ code {
     monospace;
 }
 
-/* Custom animations */
-@keyframes gradientPulse {
+/* ===== PROFESSIONAL COMPONENT STYLES ===== */
+
+/* Enhanced Control Panel */
+.dashboard-control-panel {
+  @apply bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.control-btn {
+  @apply px-4 py-2.5 rounded-lg font-semibold transition-all duration-200 flex items-center gap-2 shadow-sm;
+}
+
+.control-btn.primary {
+  @apply bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800 transform hover:scale-105 hover:shadow-md;
+}
+
+.control-btn.secondary {
+  @apply bg-gradient-to-r from-gray-600 to-gray-700 text-white hover:from-gray-700 hover:to-gray-800 transform hover:scale-105 hover:shadow-md;
+}
+
+.control-btn.outline {
+  @apply border-2 border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 transform hover:scale-105;
+}
+
+.form-select {
+  @apply px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white shadow-sm;
+}
+
+/* Enhanced Empty State */
+.empty-state-card {
+  @apply bg-white rounded-xl shadow-lg border border-gray-200 p-12 text-center;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.empty-state-icon {
+  @apply w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-6;
+}
+
+.upload-btn {
+  @apply bg-gradient-to-r from-blue-600 to-blue-700 text-white cursor-pointer inline-flex text-lg px-8 py-4 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105 hover:shadow-lg;
+}
+
+.expected-sheets-info {
+  @apply mt-8 p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl text-left border border-gray-200;
+}
+
+.sheet-item {
+  @apply flex items-center gap-3;
+}
+
+.sheet-indicator {
+  @apply w-3 h-3 rounded-full;
+}
+
+.sheet-indicator.blue { @apply bg-blue-400; }
+.sheet-indicator.green { @apply bg-green-400; }
+.sheet-indicator.orange { @apply bg-orange-400; }
+.sheet-indicator.purple { @apply bg-purple-400; }
+.sheet-indicator.red { @apply bg-red-400; }
+.sheet-indicator.yellow { @apply bg-yellow-400; }
+
+/* Enhanced Metric Cards */
+.metric-card {
+  @apply bg-white rounded-xl shadow-lg border border-gray-200 p-6 transition-all duration-300 hover:shadow-xl hover:transform hover:scale-105;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.metric-card.ich-channel {
+  border-left: 4px solid #3b82f6;
+}
+
+.metric-card.lfm-channel {
+  border-left: 4px solid #10b981;
+}
+
+.metric-card.overall-retention {
+  border-left: 4px solid #8b5cf6;
+}
+
+.metric-card.churn-alert {
+  border-left: 4px solid #ef4444;
+}
+
+.metric-header {
+  @apply flex justify-between items-center mb-4;
+}
+
+.metric-icon {
+  @apply w-12 h-12 rounded-xl flex items-center justify-center shadow-sm;
+}
+
+.metric-trend {
+  @apply text-sm font-bold px-3 py-1.5 rounded-full;
+}
+
+.metric-trend.positive {
+  @apply bg-gradient-to-r from-green-100 to-green-200 text-green-700;
+}
+
+.metric-trend.negative {
+  @apply bg-gradient-to-r from-red-100 to-red-200 text-red-700;
+}
+
+.metric-title {
+  @apply text-sm font-semibold text-gray-600 mb-2 uppercase tracking-wide;
+}
+
+.metric-value {
+  @apply text-3xl font-black mb-2;
+}
+
+.metric-subtitle {
+  @apply text-sm text-gray-500 font-medium;
+}
+
+/* Enhanced Journey Pipeline */
+.journey-pipeline-card {
+  @apply bg-white rounded-xl shadow-lg border border-gray-200 p-8 mb-6;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.journey-stage-card {
+  @apply bg-gradient-to-br from-white to-gray-50 rounded-xl border border-gray-200 p-6 text-center shadow-md transition-all duration-300 hover:shadow-lg hover:transform hover:scale-105;
+  border-left: 4px solid #3b82f6;
+}
+
+.journey-number {
+  @apply text-2xl font-black text-blue-600 mb-2;
+}
+
+.journey-label {
+  @apply text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wide;
+}
+
+.journey-percentage {
+  @apply text-sm text-gray-500 mb-3;
+}
+
+.journey-trend {
+  @apply text-xs bg-gradient-to-r from-green-100 to-green-200 text-green-700 px-3 py-1 rounded-full font-bold;
+}
+
+/* Enhanced Chart Cards */
+.chart-card {
+  @apply bg-white rounded-xl shadow-lg border border-gray-200 p-6;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.chart-title {
+  @apply text-xl font-bold text-gray-900 mb-6 flex items-center gap-2;
+}
+
+/* Enhanced Section Styling */
+.section-title {
+  @apply text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3;
+}
+
+.section-subtitle {
+  @apply text-gray-600 mb-8 text-lg;
+}
+
+.kpi-section, .attendance-section, .alerts-section {
+  @apply bg-white rounded-xl shadow-lg border border-gray-200 p-8 mb-6;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+/* Enhanced KPI Cards */
+.kpi-card {
+  @apply bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 border border-gray-200 shadow-md transition-all duration-300 hover:shadow-lg hover:transform hover:scale-105;
+}
+
+.kpi-header {
+  @apply flex justify-between items-center mb-4;
+}
+
+.kpi-title {
+  @apply text-sm font-semibold text-gray-600 uppercase tracking-wide;
+}
+
+.kpi-status {
+  @apply w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-sm;
+}
+
+.kpi-status.excellent {
+  @apply bg-gradient-to-r from-green-500 to-green-600;
+}
+
+.kpi-status.good {
+  @apply bg-gradient-to-r from-blue-500 to-blue-600;
+}
+
+.kpi-status.warning {
+  @apply bg-gradient-to-r from-yellow-500 to-yellow-600;
+}
+
+.kpi-value {
+  @apply text-2xl font-black text-gray-900 mb-2;
+}
+
+.kpi-subtitle {
+  @apply text-sm text-gray-500 mb-3 font-medium;
+}
+
+.kpi-trend {
+  @apply text-sm font-bold text-green-600 bg-green-50 px-2 py-1 rounded-full;
+}
+
+/* Enhanced Attendance Cards */
+.attendance-card {
+  @apply bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 border border-gray-200 shadow-md transition-all duration-300 hover:shadow-lg hover:transform hover:scale-105;
+}
+
+.attendance-header {
+  @apply flex justify-between items-center mb-6;
+}
+
+.attendance-title {
+  @apply font-bold text-gray-900 text-lg;
+}
+
+.status-badge {
+  @apply px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide;
+}
+
+.status-badge.excellent {
+  @apply bg-gradient-to-r from-green-100 to-green-200 text-green-700;
+}
+
+.status-badge.good {
+  @apply bg-gradient-to-r from-blue-100 to-blue-200 text-blue-700;
+}
+
+.status-badge.warning {
+  @apply bg-gradient-to-r from-yellow-100 to-yellow-200 text-yellow-700;
+}
+
+.attendance-metrics {
+  @apply grid grid-cols-3 gap-4;
+}
+
+.attendance-metric {
+  @apply text-center;
+}
+
+.attendance-metric .metric-value {
+  @apply text-xl font-black text-gray-900;
+}
+
+.attendance-metric .metric-label {
+  @apply text-xs text-gray-500 uppercase tracking-wide font-semibold;
+}
+
+/* Enhanced Alert Cards */
+.alert-card {
+  @apply flex items-center gap-6 p-6 rounded-xl border transition-all duration-300 hover:shadow-lg;
+}
+
+.alert-card.critical {
+  @apply bg-gradient-to-r from-red-50 to-red-100 border-red-200 shadow-md;
+}
+
+.alert-card.warning {
+  @apply bg-gradient-to-r from-yellow-50 to-yellow-100 border-yellow-200 shadow-md;
+}
+
+.alert-card.success {
+  @apply bg-gradient-to-r from-green-50 to-green-100 border-green-200 shadow-md;
+}
+
+.alert-indicator {
+  @apply w-4 h-4 rounded-full flex-shrink-0;
+}
+
+.alert-card.critical .alert-indicator {
+  @apply bg-gradient-to-r from-red-500 to-red-600 shadow-sm;
+}
+
+.alert-card.warning .alert-indicator {
+  @apply bg-gradient-to-r from-yellow-500 to-yellow-600 shadow-sm;
+}
+
+.alert-card.success .alert-indicator {
+  @apply bg-gradient-to-r from-green-500 to-green-600 shadow-sm;
+}
+
+.alert-content {
+  @apply flex-1;
+}
+
+.alert-title {
+  @apply font-bold text-gray-900 mb-2 text-lg;
+}
+
+.alert-description {
+  @apply text-sm text-gray-600 leading-relaxed;
+}
+
+.alert-action {
+  @apply flex-shrink-0;
+}
+
+.action-btn {
+  @apply px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white text-sm rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-200 transform hover:scale-105 shadow-sm;
+}
+
+/* Enhanced Loading States */
+.loading-overlay {
+  @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50;
+  backdrop-filter: blur(4px);
+}
+
+.loading-modal {
+  @apply bg-white rounded-xl p-8 flex flex-col items-center shadow-2xl;
+}
+
+.loading-spinner {
+  @apply animate-spin rounded-full h-16 w-16 border-b-4 border-blue-600;
+}
+
+.loading-text {
+  @apply mt-4 text-gray-700 text-lg font-semibold;
+}
+
+/* ===== CUSTOM ANIMATIONS ===== */
+@keyframes gradientShift {
   0%, 100% { 
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 25%, #e74c3c 50%, #c0392b 75%, #2c3e50 100%); 
-  }
-  25% { 
-    background: linear-gradient(135deg, #2a5298 0%, #e74c3c 25%, #c0392b 50%, #2c3e50 75%, #1e3c72 100%); 
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); 
   }
   50% { 
-    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 25%, #2c3e50 50%, #1e3c72 75%, #2a5298 100%); 
-  }
-  75% { 
-    background: linear-gradient(135deg, #c0392b 0%, #2c3e50 25%, #1e3c72 50%, #2a5298 75%, #e74c3c 100%); 
+    background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%); 
   }
 }
 
@@ -47,9 +365,9 @@ code {
   50% { transform: translateY(-6px); }
 }
 
-@keyframes pulse-arrow {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.15); }
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.6); }
 }
 
 @keyframes shimmer {
@@ -57,31 +375,153 @@ code {
   100% { transform: translateX(100%); }
 }
 
-@keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 /* Custom utilities */
 .animate-gradient {
-  animation: gradientPulse 25s ease-in-out infinite;
+  animation: gradientShift 8s ease-in-out infinite;
 }
 
 .animate-float {
-  animation: float 4s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
 }
 
 .animate-bounce-slow {
-  animation: bounce 3s ease-in-out infinite;
+  animation: bounce 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
 }
 
 .animate-shimmer {
   animation: shimmer 2.5s infinite;
 }
 
-/* Backdrop blur fallback */
-@supports not (backdrop-filter: blur()) {
-  .backdrop-blur-sm {
-    background-color: rgba(255, 255, 255, 0.9);
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .metric-card {
+    @apply p-4;
+  }
+  
+  .journey-stage-card {
+    @apply p-4;
+  }
+  
+  .chart-card {
+    @apply p-4;
+  }
+  
+  .kpi-card {
+    @apply p-4;
+  }
+  
+  .attendance-card {
+    @apply p-4;
+  }
+  
+  .dashboard-control-panel {
+    @apply p-4;
+  }
+  
+  .kpi-section, .attendance-section, .alerts-section {
+    @apply p-6;
+  }
+  
+  .journey-pipeline-card {
+    @apply p-6;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+  .animate-gradient,
+  .animate-float,
+  .animate-bounce-slow,
+  .animate-pulse-glow,
+  .animate-shimmer {
+    animation: none;
+  }
+  
+  .transition-all {
+    transition: none;
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  .dashboard-control-panel,
+  .loading-overlay {
+    display: none !important;
+  }
+  
+  .metric-card,
+  .chart-card,
+  .kpi-card,
+  .attendance-card,
+  .alert-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* ===== DARK MODE SUPPORT ===== */
+@media (prefers-color-scheme: dark) {
+  body {
+    @apply bg-gray-900;
+  }
+  
+  .metric-card,
+  .chart-card,
+  .kpi-card,
+  .attendance-card,
+  .journey-pipeline-card,
+  .kpi-section,
+  .attendance-section,
+  .alerts-section,
+  .dashboard-control-panel,
+  .empty-state-card {
+    @apply bg-gray-800 border-gray-700;
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  }
+  
+  .metric-title,
+  .kpi-title,
+  .attendance-title,
+  .section-title,
+  .chart-title,
+  .alert-title {
+    @apply text-gray-100;
+  }
+  
+  .metric-subtitle,
+  .kpi-subtitle,
+  .metric-label,
+  .section-subtitle,
+  .alert-description {
+    @apply text-gray-300;
+  }
+}
+
+/* ===== FOCUS STYLES ===== */
+.control-btn:focus,
+.form-select:focus,
+.upload-btn:focus,
+.action-btn:focus {
+  @apply outline-none ring-4 ring-blue-500 ring-opacity-50;
+}
+
+/* ===== HIGH CONTRAST MODE ===== */
+@media (prefers-contrast: high) {
+  .metric-card,
+  .chart-card,
+  .kpi-card,
+  .attendance-card,
+  .alert-card {
+    @apply border-2 border-gray-900;
+  }
+  
+  .metric-trend,
+  .status-badge,
+  .kpi-status {
+    @apply border border-gray-900;
   }
 }
